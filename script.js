@@ -1,4 +1,4 @@
-// Dark Mode Toggle
+// Theme toggle
 const toggleBtns = document.querySelectorAll('.theme-toggle');
 toggleBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -8,23 +8,20 @@ toggleBtns.forEach((btn) => {
   });
 });
 
-// Copy Email to Clipboard with Feedback
+// Copy primary email with feedback
 function setupCopyEmail() {
   const copyBtn = document.getElementById('copy-email-btn');
   const copyText = document.getElementById('copy-email-text');
-  const email = 'thyagaraja1983@gmail.com';
+  const email = 'thyagarajsalome@gmail.com';
 
   if (copyBtn && copyText) {
     copyBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(email);
         const original = copyText.textContent;
-        copyText.textContent = 'Copied! ✓';
-        copyBtn.classList.add('bg-emerald-50', 'dark:bg-emerald-950/50', 'border-emerald-300', 'text-emerald-600', 'dark:text-emerald-400');
-        
+        copyText.textContent = 'Copied!';
         setTimeout(() => {
           copyText.textContent = original;
-          copyBtn.classList.remove('bg-emerald-50', 'dark:bg-emerald-950/50', 'border-emerald-300', 'text-emerald-600', 'dark:text-emerald-400');
         }, 2000);
       } catch (err) {
         window.location.href = `mailto:${email}`;
@@ -33,7 +30,7 @@ function setupCopyEmail() {
   }
 }
 
-// Scroll-triggered animations via IntersectionObserver
+// Subtle scroll reveal
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -43,7 +40,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+  { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
 );
 
 document.addEventListener('DOMContentLoaded', () => {

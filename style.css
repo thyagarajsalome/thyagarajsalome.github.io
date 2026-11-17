@@ -1,8 +1,10 @@
-/* Scroll-triggered fade-in animations */
+/* Google-inspired Clean & Minimalist Styles */
+
+/* Subtle Scroll-triggered animations */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .animate-on-scroll.visible {
@@ -10,25 +12,22 @@
   transform: translateY(0);
 }
 
-/* Staggered delays */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
+.delay-100 { transition-delay: 80ms; }
+.delay-200 { transition-delay: 160ms; }
+.delay-300 { transition-delay: 240ms; }
 
-/* Smooth transitions for theme toggle */
+/* Smooth transitions */
 html {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Dark mode body color scheme */
 .dark body {
   color-scheme: dark;
 }
 
-/* Custom scrollbar */
+/* Minimalist Google-style Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -36,62 +35,18 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #e2e8f0;
+  border-radius: 9999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #27272a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #cbd5e1;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
-}
-
-/* Print Optimization (Clean 1-2 page resume for recruiters) */
-@media print {
-  .no-print {
-    display: none !important;
-  }
-
-  body {
-    background: #ffffff !important;
-    color: #0f172a !important;
-    font-size: 11pt !important;
-  }
-
-  main {
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .animate-on-scroll {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  article, section {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    box-shadow: none !important;
-    border: 1px solid #e2e8f0 !important;
-    background: #ffffff !important;
-  }
-
-  a {
-    text-decoration: none !important;
-    color: #0f172a !important;
-  }
-
-  /* Expand links in print */
-  a[href^="http"]::after {
-    content: " (" attr(href) ")";
-    font-size: 8pt;
-    color: #64748b;
-  }
+  background: #3f3f46;
 }
