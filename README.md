@@ -2,53 +2,36 @@
 
 > Product Developer | Software Architect | 3D & AI
 
-A personal portfolio built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), showcasing projects, skills, and professional experience.
+A clean, responsive personal portfolio built with pure **HTML5**, **CSS3**, **JavaScript**, and **Tailwind CSS**, showcasing projects, skills, and professional experience.
 
 ## 🚀 Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
-| **Astro 6** | Static site framework |
-| **Tailwind CSS 4** | Utility-first styling |
-| **TypeScript** | Type-safe code |
+| **HTML5** | Semantic structure & SEO meta tags |
+| **Tailwind CSS (CDN)** | Modern utility-first styling & dark mode |
+| **CSS3** | Custom animations & scrollbars |
+| **JavaScript** | Dark mode toggle & scroll-triggered animations |
 
 ## ✨ Features
 
-- **Dark mode** — Toggleable with system preference detection
-- **Scroll animations** — Fade-in sections on scroll via Intersection Observer
-- **SEO optimized** — Open Graph, Twitter cards, meta tags
-- **Responsive** — Mobile-first layout with Tailwind breakpoints
-- **Fast** — 100% static output via Astro build
-
-## 🧞 Commands
-
-| Command | Action |
-|---------|--------|
-| `npm install` | Install dependencies |
-| `npm run dev` | Start dev server at `localhost:4321` |
-| `npm run build` | Build to `./dist/` |
-| `npm run preview` | Preview production build |
+- **Zero Build Step** — Pure static files ready to be served anywhere immediately.
+- **Dark Mode** — Toggleable with system preference detection and local storage persistence.
+- **Scroll Animations** — Smooth fade-in effects powered by Intersection Observer.
+- **SEO & Social Cards** — Complete Open Graph, Twitter cards, and semantic meta tags.
+- **100% Mobile Responsive** — Optimized across mobile, tablet, and desktop viewports.
 
 ## 📁 Project Structure
 
 ```
-src/
-├── components/     # Reusable UI components
-│   ├── Header.astro
-│   ├── ProfileSummary.astro
-│   ├── Projects.astro
-│   ├── Skills.astro
-│   ├── Experience.astro
-│   └── FooterSection.astro
-├── layouts/        # Page layouts
-│   └── Layout.astro
-├── pages/          # Route pages
-│   └── index.astro
-└── styles/         # Global styles
-    └── global.css
+├── index.html       # Main portfolio markup & meta tags
+├── style.css        # Animations & custom styling
+├── script.js        # Theme toggle & IntersectionObserver
+├── favicon.ico      # Site favicon
+├── favicon.svg      # SVG vector favicon
+└── README.md
 ```
 
-## 🌐 Links
+## 🌐 Free Hosting
 
-- **AI Home Decorator** — [aihomedecorator.com](https://aihomedecorator.com)
-- **Home Design English** — [homedesignenglish.com](https://homedesignenglish.com)
+This repository is ready to be hosted immediately on **GitHub Pages**, **Vercel**, **Netlify**, or **Cloudflare Pages** without any build steps or commands needed!
