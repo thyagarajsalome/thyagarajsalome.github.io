@@ -48,30 +48,68 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./style.css" />
     
-    <!-- Dark Mode Init -->
+    <!-- Color Scheme & Dark Mode Init (Zero FOUC) -->
+    <meta name="color-scheme" content="light dark" />
     <script>
       (function() {
         var theme = localStorage.getItem('theme');
-        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
           document.documentElement.classList.add('dark');
+        }
+        var meta = document.querySelector('meta[name="color-scheme"]');
+        if (meta) {
+          meta.content = theme ? theme : 'light dark';
         }
       })();
     </script>
+
+    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Thyagaraja M",
+      "url": "https://thyagarajsalome.github.io/",
+      "jobTitle": "Product Developer | SaaS & AI Application Developer | Full Stack Web Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "India"
+      },
+      "sameAs": [
+        "https://github.com/thyagarajsalome",
+        "https://www.linkedin.com/in/thyagaraja-m-112b84118/"
+      ],
+      "knowsAbout": [
+        "Next.js",
+        "React Native",
+        "Generative AI",
+        "PostgreSQL Supabase",
+        "Java Desktop CAD",
+        "WebAssembly"
+      ]
+    }
+    </script>
   </head>
   <body class="bg-[#fafafa] dark:bg-[#121212] text-[#202124] dark:text-[#e8eaed] font-sans antialiased selection:bg-[#1a73e8] selection:text-white min-h-screen">
+
+    <!-- Skip to Content Link (Accessibility) -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none text-xs font-semibold">Skip to content</a>
 
     <!-- MINIMALIST STICKY NAV -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 dark:bg-[#121212]/90 border-b border-slate-200/80 dark:border-zinc-800">
       <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
         
         <!-- Logo / Name -->
-        <a href="#top" class="flex items-center gap-2.5 font-semibold text-slate-900 dark:text-white">
+        <a href="#main-content" class="flex items-center gap-2.5 font-semibold text-slate-900 dark:text-white">
           <span class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs font-bold shadow-sm">TM</span>
           <span class="text-sm font-semibold tracking-tight">Thyagaraja M</span>
         </a>
 
         <!-- Links -->
-        <nav class="hidden sm:flex items-center gap-6 text-sm text-slate-600 dark:text-zinc-400 font-medium">
+        <nav aria-label="Primary navigation" class="hidden sm:flex items-center gap-6 text-sm text-slate-600 dark:text-zinc-400 font-medium">
           <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
           <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
           <a href="#arsenal" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
@@ -110,7 +148,7 @@
     </header>
 
     <!-- CONTENT WRAPPER -->
-    <main id="top" class="max-w-4xl mx-auto px-6 py-12 space-y-16">
+    <main id="main-content" tabindex="-1" class="max-w-4xl mx-auto px-6 py-12 space-y-16 outline-none">
       
       <!-- HERO -->
       <section class="animate-on-scroll">
@@ -215,7 +253,7 @@
           <article class="bg-white dark:bg-zinc-900 p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
               <div class="flex items-center gap-4">
-                <img src="./assets/images/ai-homedecorator.webp" alt="AI Home Decorator Logo" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
+                <img src="./assets/images/ai-homedecorator.webp" alt="AI Home Decorator Logo" width="48" height="48" loading="lazy" decoding="async" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
                 <div>
                   <h4 class="text-xl font-bold text-slate-900 dark:text-white">AI Home Decorator</h4>
                   <p class="text-xs text-slate-500 dark:text-zinc-400 font-medium">Generative AI Interior Styling Ecosystem &bull; Web &amp; Native Mobile</p>
@@ -296,7 +334,7 @@
           <article class="bg-white dark:bg-zinc-900 p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
               <div class="flex items-center gap-4">
-                <img src="./assets/images/hde-studio.png" alt="HDE Studio CAD Logo" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
+                <img src="./assets/images/hde-studio.png" alt="HDE Studio CAD Logo" width="48" height="48" loading="lazy" decoding="async" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
                 <div>
                   <h4 class="text-xl font-bold text-slate-900 dark:text-white">HDE Studio — 2D Architectural CAD</h4>
                   <p class="text-xs text-slate-500 dark:text-zinc-400 font-medium">Standalone Desktop Architectural CAD Software built in Java</p>
@@ -366,7 +404,7 @@
           <article class="bg-white dark:bg-zinc-900 p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
               <div class="flex items-center gap-4">
-                <img src="./assets/images/hde-logo.webp" alt="HDE Logo" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
+                <img src="./assets/images/hde-logo.webp" alt="HDE Logo" width="48" height="48" loading="lazy" decoding="async" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
                 <div>
                   <h4 class="text-xl font-bold text-slate-900 dark:text-white">HDE — Home Design English</h4>
                   <p class="text-xs text-slate-500 dark:text-zinc-400 font-medium">Construction Cost Estimator &amp; Professional Directory Ecosystem</p>
@@ -443,7 +481,7 @@
           <article class="bg-white dark:bg-zinc-900 p-7 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
               <div class="flex items-center gap-4">
-                <img src="./assets/images/desipdf-logo.svg" alt="DesiPDF Logo" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
+                <img src="./assets/images/desipdf-logo.svg" alt="DesiPDF Logo" width="48" height="48" loading="lazy" decoding="async" class="w-12 h-12 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 shadow-sm" />
                 <div>
                   <h4 class="text-xl font-bold text-slate-900 dark:text-white">DesiPDF</h4>
                   <p class="text-xs text-slate-500 dark:text-zinc-400 font-medium">Client-Side Document Engineering &amp; AI Media SaaS Platform</p>
@@ -526,7 +564,7 @@
           
           <!-- Item 1: AI Home Decorator -->
           <div class="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll flex items-center gap-3.5">
-            <img src="./assets/images/ai-homedecorator.webp" alt="AI Home Decorator Logo" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
+            <img src="./assets/images/ai-homedecorator.webp" alt="AI Home Decorator Logo" width="44" height="44" loading="lazy" decoding="async" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
             <div class="min-w-0 flex-1">
               <h4 class="text-sm font-semibold text-slate-900 dark:text-white truncate">AI Home Decorator</h4>
               <div class="flex flex-wrap items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-medium mt-1">
@@ -541,7 +579,7 @@
 
           <!-- Item 2: HDE (Home Design English) -->
           <div class="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll flex items-center gap-3.5">
-            <img src="./assets/images/hde-logo.webp" alt="HDE Logo" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
+            <img src="./assets/images/hde-logo.webp" alt="HDE Logo" width="44" height="44" loading="lazy" decoding="async" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
             <div class="min-w-0 flex-1">
               <h4 class="text-sm font-semibold text-slate-900 dark:text-white truncate">HDE &bull; Home Design English</h4>
               <div class="flex flex-wrap items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-medium mt-1">
@@ -556,7 +594,7 @@
 
           <!-- Item 3: DesiPDF -->
           <div class="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll flex items-center gap-3.5">
-            <img src="./assets/images/desipdf-logo.svg" alt="DesiPDF Logo" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
+            <img src="./assets/images/desipdf-logo.svg" alt="DesiPDF Logo" width="44" height="44" loading="lazy" decoding="async" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
             <div class="min-w-0 flex-1">
               <h4 class="text-sm font-semibold text-slate-900 dark:text-white truncate">DesiPDF</h4>
               <div class="flex flex-wrap items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-medium mt-1">
@@ -569,7 +607,7 @@
 
           <!-- Item 4: HDE Studio CAD -->
           <div class="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-slate-200/80 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-colors animate-on-scroll flex items-center gap-3.5">
-            <img src="./assets/images/hde-studio.png" alt="HDE Studio CAD Logo" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
+            <img src="./assets/images/hde-studio.png" alt="HDE Studio CAD Logo" width="44" height="44" loading="lazy" decoding="async" class="w-11 h-11 rounded-xl object-contain bg-slate-50 dark:bg-zinc-800 border border-slate-100 dark:border-zinc-700 p-1 flex-shrink-0 shadow-sm" />
             <div class="min-w-0 flex-1">
               <h4 class="text-sm font-semibold text-slate-900 dark:text-white truncate">HDE Studio &bull; Architectural CAD</h4>
               <div class="flex flex-wrap items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-medium mt-1">

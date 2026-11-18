@@ -1,10 +1,22 @@
-// Theme toggle
+// Theme toggle with standard <meta name="color-scheme"> sync
+function updateColorSchemeMeta(theme) {
+  let meta = document.querySelector('meta[name="color-scheme"]');
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = 'color-scheme';
+    document.head.appendChild(meta);
+  }
+  meta.content = theme === 'dark' ? 'dark' : theme === 'light' ? 'light' : 'light dark';
+}
+
 const toggleBtns = document.querySelectorAll('.theme-toggle');
 toggleBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
     const html = document.documentElement;
     const isDark = html.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    const newTheme = isDark ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+    updateColorSchemeMeta(newTheme);
   });
 });
 
